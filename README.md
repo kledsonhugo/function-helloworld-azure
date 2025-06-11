@@ -35,14 +35,20 @@ Este projeto demonstra como criar e executar uma Azure Function HTTP Trigger uti
 5. **Acesse as funções:**
    - Endpoint base (dinâmico): `http://localhost:7071/api/v2`
      - Responde com uma mensagem indicando que a API da versão informada está ativa.
-   - Endpoint hello (dinâmico): `http://localhost:7071/api/v2/hello?name=SeuNome`
+   - Endpoint hello (dinâmico): `http://localhost:7071/api/v2/hello?nome=SeuNome`
      - Você pode substituir `v2` por qualquer valor de versão, como `v1`, `v3`, etc.
-     - O parâmetro `name` pode ser passado via query string ou no corpo da requisição (JSON).
+     - O parâmetro `nome` pode ser passado via query string ou no corpo da requisição (JSON).
+   - Endpoint bye (dinâmico): `http://localhost:7071/api/v2/bye?nome=SeuNome`
+     - Também aceita qualquer valor de versão.
+     - O parâmetro `nome` pode ser passado via query string ou no corpo da requisição (JSON).
 
    **Exemplos:**
-   - `http://localhost:7071/api/v1/hello?name=Maria`
+   - `http://localhost:7071/api/v1/hello?nome=Maria`
    - `http://localhost:7071/api/v2/hello`
-     - Corpo da requisição (JSON): `{ "name": "João" }`
+     - Corpo da requisição (JSON): `{ "nome": "João" }`
+   - `http://localhost:7071/api/v2/bye?nome=Pedro`
+   - `http://localhost:7071/api/v3/bye`
+     - Corpo da requisição (JSON): `{ "nome": "Ana" }`
 
 ## Como contribuir
 1. Faça um fork deste repositório.
