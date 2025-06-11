@@ -1,8 +1,5 @@
 # function-helloworld-azure
 
-Projeto de exemplo de Azure Functions em Python
-==============================================
-
 Este projeto demonstra como criar e executar uma Azure Function HTTP Trigger utilizando Python, seguindo as melhores práticas recomendadas pela Microsoft e pela comunidade Azure.
 
 ## Estrutura do Projeto
@@ -10,8 +7,6 @@ Este projeto demonstra como criar e executar uma Azure Function HTTP Trigger uti
 - `requirements.txt`: Dependências do projeto.
 - `local.settings.json`: Configurações locais para desenvolvimento.
 - `host.json`: Configurações do host das Functions.
-- `.vscode/`: Configurações para desenvolvimento no VS Code.
-- `.venv/`: Ambiente virtual Python (não versionado).
 
 ## Pré-requisitos
 - Python 3.11+
@@ -38,7 +33,7 @@ Este projeto demonstra como criar e executar uma Azure Function HTTP Trigger uti
    func start
    ```
 5. **Acesse a função:**
-   - Endpoint: `http://localhost:7071/api/v1?name=SeuNome`
+   - Endpoint: `http://localhost:7071/api/v2/hello?name=SeuNome`
    - Você pode passar o parâmetro `name` via query string ou no corpo da requisição (JSON).
 
 ## Como contribuir
