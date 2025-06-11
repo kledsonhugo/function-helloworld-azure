@@ -32,9 +32,17 @@ Este projeto demonstra como criar e executar uma Azure Function HTTP Trigger uti
    ```zsh
    func start
    ```
-5. **Acesse a função:**
-   - Endpoint: `http://localhost:7071/api/v2/hello?name=SeuNome`
-   - Você pode passar o parâmetro `name` via query string ou no corpo da requisição (JSON).
+5. **Acesse as funções:**
+   - Endpoint base (dinâmico): `http://localhost:7071/api/v2`
+     - Responde com uma mensagem indicando que a API da versão informada está ativa.
+   - Endpoint hello (dinâmico): `http://localhost:7071/api/v2/hello?name=SeuNome`
+     - Você pode substituir `v2` por qualquer valor de versão, como `v1`, `v3`, etc.
+     - O parâmetro `name` pode ser passado via query string ou no corpo da requisição (JSON).
+
+   **Exemplos:**
+   - `http://localhost:7071/api/v1/hello?name=Maria`
+   - `http://localhost:7071/api/v2/hello`
+     - Corpo da requisição (JSON): `{ "name": "João" }`
 
 ## Como contribuir
 1. Faça um fork deste repositório.

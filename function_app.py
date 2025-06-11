@@ -15,17 +15,17 @@ def version_base(req: func.HttpRequest) -> func.HttpResponse:
 def hello(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Função HTTP Python acionada processou uma requisição.')
 
-    name = req.params.get('name')
-    if not name:
+    nome = req.params.get('nome')
+    if not nome:
         try:
             req_body = req.get_json()
         except ValueError:
             pass
         else:
-            name = req_body.get('name')
+            nome = req_body.get('nome')
 
-    if name:
-        return func.HttpResponse(f"Olá, {name}. Esta função HTTP foi executada com sucesso.")
+    if nome:
+        return func.HttpResponse(f"Olá, {nome}. Esta função HTTP foi executada com sucesso.")
     else:
         return func.HttpResponse(
              "Esta função HTTP foi executada com sucesso. Passe um nome na query string ou no corpo da requisição para uma resposta personalizada.",
