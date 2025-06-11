@@ -3,9 +3,16 @@ import logging
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-# Endpoint esperado: /api/v1/hello
-@app.route(route="v1/hello")
-def v1(req: func.HttpRequest) -> func.HttpResponse:
+@app.route(route="{version}", methods=["GET"])
+def version_base(req: func.HttpRequest) -> func.HttpResponse:
+    version = req.route_params.get('version')
+    return func.HttpResponse(
+        f"API {version} está ativa. Consulte os endpoints específicos, como /api/{version}/hello.",
+        status_code=200
+    )
+
+@app.route(route="{version}/hello", methods=["GET"])
+def hello(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     name = req.params.get('name')
