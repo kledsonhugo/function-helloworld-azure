@@ -13,7 +13,7 @@ def version_base(req: func.HttpRequest) -> func.HttpResponse:
 
 @app.route(route="{version}/hello", methods=["GET"])
 def hello(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
+    logging.info('Função HTTP Python acionada processou uma requisição.')
 
     name = req.params.get('name')
     if not name:
@@ -25,9 +25,9 @@ def hello(req: func.HttpRequest) -> func.HttpResponse:
             name = req_body.get('name')
 
     if name:
-        return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
+        return func.HttpResponse(f"Olá, {name}. Esta função HTTP foi executada com sucesso.")
     else:
         return func.HttpResponse(
-             "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
+             "Esta função HTTP foi executada com sucesso. Passe um nome na query string ou no corpo da requisição para uma resposta personalizada.",
              status_code=200
         )
